@@ -3,18 +3,15 @@
 
 A news recommendation system that suggests positive news articles based on user preferences.
 
+### Data
+The data is taken from [Dataset](https://statso.io/news-recommendation-case-study/#google_vignette)
+
 ### Features
 
 * Recommends news articles with positive sentiment scores
 * Uses cosine similarity to calculate article similarity
 * Integrates with NLTK library for sentiment analysis
 * Supports CSV file input for news data
-
-### Getting Started
-
-1. Clone the repository: `git clone https://github.com/your-username/positive-news-recommendation-system.git`
-2. Install required libraries: `pip install -r requirements.txt`
-3. Run the script: `python news_recommendation.py`
 
 ### Usage
 
