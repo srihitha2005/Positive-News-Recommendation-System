@@ -6,6 +6,10 @@ A news recommendation system that suggests positive news articles based on user 
 ### Data
 The data is taken from [Dataset](https://statso.io/news-recommendation-case-study/#google_vignette)
 
+### Files
+* A notebook file named positive news recommndation system.ipynb containing the code and output
+* A file named documentation contating thiking_process, Choice of Dataset,Challenges and their possible solutions, Initial compromises that might get better in future versions
+
 ### Features
 
 * Recommends news articles with positive sentiment scores
