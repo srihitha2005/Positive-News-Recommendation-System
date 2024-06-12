@@ -1,0 +1,33 @@
+### Thought Process while solving the problem:
+
+The problem statement is :
+#### Positive News recommendation system.
+Design a news algorithm which recommends positive/uplifting content to the users.
+
+The problem is first divided into two parts:
+1. **News recommendation**
+2. **Positive News recommendation**
+
+#### Sub Problem 1:
+To recommend news we have to check similarity between two news articles that is done using **cosine similarity matrix**. To obtain the cosine similarity matrix the data is **vectorized**. And finally the news articles are choosen using indices of the articles and similarity score, the top 10 similarity values are returned.
+
+#### Sub Problem 2:
+After we found the similarity matrix along with similarity score we also have to check weather an article is positive or negative if the article is negative it gives the next closest index. We find weather a news article is positive or negative using **SentimentIntensityAnalyzer**
+
+#### Choosing the dataset:
+The data was taken from the website “https://statso.io/news-recommendation-case-study/#google_vignette”.
+I choose the particular data since it was of moderate length which facilitates my systems computation capabilities. My options were MIND dataset, the choosen dataset and some datasets from Kaggle and huggingface. MIND is a large dataset so that it takes more resources to store and use it even when we take a subsdataset from it, Kaggle datasets contain unnecessary columns though can be filtered out still takes more storage and fewer extra steps of computation, loading huggingface datasets takes computational power. My news recommendation system is somewhat simpler model so I wouldn’t require huge data.  And additionally the dataset I choose comes preprocessed which would reduce time and computation further for me.
+I worked with **Title** rather **summary** to use lesser resources
+
+#### Challenges expected:
+
+* **Sentiment Analysis**: The accuracy of sentiment analysis can be influenced by the nuances of language. We have to use a better sentiment analysis.
+* **Scalability**: Handling a large dataset and a significant number of users will require an efficient architecture and optimized algorithms. We will explore using distributed computing frameworks
+
+#### Compromises faced that can be fixed in future versions:
+1. **Fixed number of outputs**: this can be fixed by introducing a new variable named **number_of_articles**
+2. **Inability to process larger data but the risk of data being exhausted**: This can be solved by using a **dataloader** for large datasets and obtaining a new batch whenever the data is getting exhausted, however this might require a large amount of storage space
+3. **The model only considers if the title is viewed or not but it doesn’t consider weather the user likes it or not this could lead to continuous  incorrect recommendation**: This  can be solved by introducing a new variable **liked** which might take 0 if the user likes it and 1 if the user doesn’t
+4. **The model doesn’t take into consideration first time users**: First time users can be recommended top news articles in their age groups or interest
+5. **Improvement**: the model can further be improved if we also take into consideration of interests of the user for example sports, games, politics etc
+6. **The model doesn’t consider the user user relation**: This can be done using collecting data from different users constructing a similarity matrix between the users and recommend ones read to other user if they have high score.
